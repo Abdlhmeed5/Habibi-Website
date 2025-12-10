@@ -101,12 +101,12 @@ color: #a6d1ff;
             transform: translateY(-2px);
         }
         .message {
-    margin-top: 20px;
-    color: #a6d1ff; /* أزرق فاتح متناسق مع ستايل الصفحة */
-    font-size: 16px;
-    text-align: center;
-    max-width: 300px;
-    line-height: 1.5;
+            margin-top: 20px;
+            color: #a6d1ff; /* أزرق فاتح متناسق مع ستايل الصفحة */
+            font-size: 16px;
+            text-align: center;
+            max-width: 300px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -117,21 +117,18 @@ color: #a6d1ff;
 
     <div class="container">
         <div id="heart" class="heart">♡</div>
-        <a href="index.html" class="back">الصفحة الي قبل</a>
+
+        <!-- الجملة الجديدة أسفل القلب -->
+        <p class="message">
+            صراحة هذه الصفحة بس كدا حبيت اختبر مهاراتي البرمجية. و برضو كمان عشان اقولك اني احبك 💙
+        </p>
+
+        <a href="index.html" class="back">رجوع للصفحة الأولى</a>
     </div>
 
     <!-- 🎧 صوت نبض -->
     <audio id="heartbeat-sound" src="https://freesound.org/data/previews/567/567215_1263503-lq.mp3"></audio>
-<div class="container">
-    <div id="heart" class="heart">♡</div>
 
-    <!-- الجملة الجديدة أسفل القلب -->
-    <p class="message">
-        صراحة هذه الصفحة بس كدا حبيت اختبر مهاراتي البرمجية. و برضو كمان عشان اقولك اني احبك 💙
-    </p>
-
-    <a href="index.html" class="back">رجوع للصفحة الأولى</a>
-</div>
     <script>
         const heart = document.getElementById("heart");
         const sound = document.getElementById("heartbeat-sound");
