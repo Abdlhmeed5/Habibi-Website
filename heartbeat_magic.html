@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>قلبك</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: radial-gradient(circle at top, #2a1b37, #120d19 80%);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ⭐ نجوم متحركة */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .stars::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow:
+                50px 80px white, 120px 150px white, 200px 60px white,
+                300px 200px white, 400px 100px white, 500px 250px white,
+                600px 50px white, 700px 180px white, 800px 30px white,
+                900px 220px white, 1000px 120px white, 1100px 90px white,
+                1200px 170px white, 1300px 40px white, 1400px 200px white;
+            animation: moveStars 30s linear infinite;
+        }
+
+        @keyframes moveStars {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-1000px); }
+        }
+
+        /* 💗 القلب */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .heart {
+            font-size: 120px;
+            background: linear-gradient(45deg, #ff6ac8, #ff9de2, #ff6ac8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: beat 1.6s infinite ease-in-out;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.25); }
+            55% { transform: scale(1); }
+            80% { transform: scale(1.18); }
+            100% { transform: scale(1); }
+        }
+
+        /* 🔙 زر الرجوع */
+        .back {
+            margin-top: 30px;
+            padding: 12px 28px;
+            border-radius: 25px;
+            /* الخلفية الأساسية */
+background-color: #0b1c3f;
+
+/* تدرج القلب */
+background: linear-gradient(45deg, #1e90ff, #00bfff, #1e90ff);
+
+/* زر الرجوع */
+background: rgba(30, 144, 255, 0.15);
+border: 1px solid rgba(30, 144, 255, 0.35);
+color: #a6d1ff;
+            border: 1px solid rgba(255, 150, 230, 0.35);
+            color: #ffc7f7;
+            font-size: 16px;
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            background: rgba(255, 150, 230, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <div class="container">
+        <div id="heart" class="heart">♡</div>
+        <a href="index.html" class="back">الصفحة الي قبل</a>
+    </div>
+
+    <!-- 🎧 صوت نبض -->
+    <audio id="heartbeat-sound" src="https://freesound.org/data/previews/567/567215_1263503-lq.mp3"></audio>
+
+    <script>
+        const heart = document.getElementById("heart");
+        const sound = document.getElementById("heartbeat-sound");
+
+        // تشغيل الصوت عند الضغط على القلب
+        heart.onclick = () => {
+            sound.currentTime = 0;
+            sound.play();
+        };
+    </script>
+
+</body>
+</html>
